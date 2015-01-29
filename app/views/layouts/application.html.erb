@@ -8,7 +8,8 @@
 </head>
 <body>
 
-<!--<%= link_to 'Home', 'users#welcome' %>-->
+<%= link_to 'Home', root_url %>
+
 <% if user_signed_in? %>
     <span><%= link_to current_user.login, current_user %></span>
     <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>

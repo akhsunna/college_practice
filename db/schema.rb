@@ -80,9 +80,5 @@ ActiveRecord::Schema.define(version: 20150129231811) do
   add_foreign_key "events", "event_categories"
   add_foreign_key "events", "users"
   add_foreign_key "events_users", "events"
-  add_foreign_key "events_users", "events"
-  add_foreign_key "events_users", "events"
-  add_foreign_key "events_users", "users"
-  add_foreign_key "events_users", "users"
   add_foreign_key "events_users", "users"
 end
