@@ -1,3 +1,17 @@
+<% provide(:title, 'All users') %>
 <div>
-  Articles
+  <h1>All users</h1>
+  <h4>
+    <%= @u.login %>
+  </h4>
+  <%= @u.email %><br />
+  <%= @u.place %>
+
+  <ul>
+    <% @users.each do |user| %>
+      <li>
+        <%= link_to user.login, user %>
+      </li>
+    <% end %>
+  </ul>
 </div>
