@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129095226) do
+ActiveRecord::Schema.define(version: 20150129134524) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",           limit: 255
@@ -31,14 +31,19 @@ ActiveRecord::Schema.define(version: 20150129095226) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "title",          limit: 255
-    t.string   "place",          limit: 255
+    t.string   "title",             limit: 255
+    t.string   "place",             limit: 255
     t.date     "date"
-    t.text     "description",    limit: 65535
-    t.integer  "members_number", limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.text     "description",       limit: 65535
+    t.integer  "members_number",    limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "event_category_id", limit: 4
+    t.integer  "user_id",           limit: 4
   end
+
+  add_index "events", ["event_category_id"], name: "index_events_on_event_category_id", using: :btree
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "events_users", id: false, force: :cascade do |t|
     t.integer "user_id",  limit: 4, null: false
@@ -65,4 +70,5 @@ ActiveRecord::Schema.define(version: 20150129095226) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "events", "users"
 end
