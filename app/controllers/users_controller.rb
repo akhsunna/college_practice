@@ -4,7 +4,10 @@ class UsersController < ApplicationController
     @u = User.find(params[:id])
   end
 
-  def welcome
+  respond_to :html
 
+  def welcome
+    @articles = Article.all
+    respond_with @articles
   end
 end
