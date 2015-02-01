@@ -1,0 +1,11 @@
+%h3 Articles:
+
+%tbody
+- @articles.each do |article|
+    %div
+    = article.title
+    %br
+    = article.description
+    %br
+    = article.date
+%br

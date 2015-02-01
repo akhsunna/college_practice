@@ -1,0 +1,15 @@
+- provide(:title, 'Profile')
+%div
+  %h1 Your details
+  %h4
+    = @u.name
+  = @u.email
+  %br
+  = @u.place
+  %br
+
+  Other users:
+  %ul
+    - @users.each do |user|
+      %li
+        = link_to user.name, user
