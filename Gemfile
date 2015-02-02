@@ -9,6 +9,9 @@ gem 'haml'
 gem 'bootstrap-sass', '~> 3.3.2'
 gem 'twitter-bootstrap-rails'
 
+gem 'carrierwave'
+gem 'mini_magick'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use mysql as the database for Active Record

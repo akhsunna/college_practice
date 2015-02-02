@@ -5,6 +5,9 @@
 
     %h3{ :class => 'form-signin-heading' }Your Account Settings
 
+    = image_tag resource.avatar_url(:thumb).to_s
+    = f.file_field :avatar
+
     = f.text_field :name, autofocus: true, placeholder: :name, :class => 'form-control'
     = f.email_field :email, placeholder: :email, :class => 'form-control'
     = f.text_field :place, placeholder: :place, :class => 'form-control'

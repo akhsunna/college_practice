@@ -1,14 +1,15 @@
-%h3 Articles:
+.cont
+  %h3 Articles:
 
-%tbody
-- @articles.each do |article|
-  %div
-  = article.title
+  %tbody
+  - @articles.each do |article|
+    %div
+    = article.title
+    %br
+    = article.description
+    %br
+    = article.date
   %br
-  = article.description
-  %br
-  = article.date
-%br
 
-%button.navbar-toggle{type: 'button', data: {toggle: 'collapse', target: '.navbar-responsive-collapse'}}
-  %span.icon-bar
+  %button.navbar-toggle{type: 'button', data: {toggle: 'collapse', target: '.navbar-responsive-collapse'}}
+    %span.icon-bar

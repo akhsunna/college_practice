@@ -24,3 +24,52 @@
 .form-control {
   height: 40px;
 }
+
+body {
+  background: #E2E2E2;
+}
+
+.cont {
+  background: #FFFFFF;
+  position: relative;
+  width: 1000px;
+  margin: auto;
+  padding: 10px 0 ;
+}
+
+.umain {
+  position: relative;
+  width: 900px;
+  padding: 20px 30px;
+  margin: 10px 60px;
+//  vertical-align: top;
+  background: #EFEFEF;
+}
+
+.ava {
+  position: relative;
+  z-index: 3;
+  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+//  position: absolute;
+//  left: 30px;
+  margin-right: 30px;
+
+  background: #fff;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.inf {
+  width: 460px;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+  letter-spacing: 0;
+  word-spacing: 0;
+  text-align: left;
+}

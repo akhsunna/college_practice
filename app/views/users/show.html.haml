@@ -1,15 +1,20 @@
 - provide(:title, 'Profile')
-%div
-  %h1 Your details
-  %h4
-    = @u.name
-  = @u.email
-  %br
-  = @u.place
-  %br
+.cont
+  .umain
+    .ava
+      = image_tag @u.avatar_url(:thumb).to_s
 
-  Other users:
-  %ul
-    - @users.each do |user|
-      %li
-        = link_to user.name, user
+    .inf
+      %h1
+        = @u.name
+      %h3
+        = @u.place
+      %br
+      = link_to 'Account Settings', edit_user_registration_path
+
+  .umain
+    Other users:
+    %ul
+      - @users.each do |user|
+        %li
+          = link_to user.name, user
