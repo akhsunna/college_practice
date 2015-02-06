@@ -2,7 +2,7 @@
 
   %tbody
   - @articles.each do |article|
-    = link_to edit_user_registration_path do
+    = link_to  article_path(article.id) do
       .little-article
         .blackout
         .la-description

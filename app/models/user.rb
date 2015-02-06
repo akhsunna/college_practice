@@ -12,4 +12,10 @@ class User < ActiveRecord::Base
 
   # validates_presence_of   :avatar
 
+  #
+  # before_save :default_values
+  # def default_values
+  #   self.editor ||= false
+  # end
+
 end
