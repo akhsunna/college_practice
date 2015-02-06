@@ -4,7 +4,13 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :articles
+  resources :comments do
+    resources :comments
+  end
+
+  resources :articles do
+    resources :comments
+  end
 
   # root to: 'articles#index'
 

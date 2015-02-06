@@ -1,0 +1,10 @@
+%li.comment
+
+  .comment-body
+    = comment.body
+
+  %p= link_to 'Reply', new_comment_comment_path(comment)
+
+  - unless comment.comments.empty?
+    %ul.comment_list
+      = render :partial => 'comments/comment', :collection => comment.comments
