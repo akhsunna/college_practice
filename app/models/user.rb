@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :events, through: :events_users
   has_many :events
   has_many :articles
+  has_many :comments
 
   # validates_presence_of   :avatar
 

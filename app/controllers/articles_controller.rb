@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
   respond_to :html
 
   def index
@@ -13,6 +13,9 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    if !current_user.editor
+      redirect_to root_path
+    end
     @article = Article.new
   end
 

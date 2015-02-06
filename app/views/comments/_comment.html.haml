@@ -1,9 +1,15 @@
 %li.comment
 
+  .author
+    - if !comment.user_id.nil?
+      - login = User.find(comment.user_id).name
+      = link_to "#{login}", user_path(:id => comment.user_id)
+
   .comment-body
     = comment.body
 
-  %p= link_to 'Reply', new_comment_comment_path(comment)
+  - if user_signed_in?
+    %p= link_to 'Reply', new_comment_comment_path(comment)
 
   - unless comment.comments.empty?
     %ul.comment_list

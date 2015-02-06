@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :commentable, :polymorphic => true
   has_many :comments, :as => :commentable
+  belongs_to :user
 
   # def article
   #   return @article if defined?(@article)
@@ -9,5 +10,9 @@ class Comment < ActiveRecord::Base
 
   def article
     commentable.is_a?(Article) ? commentable : commentable.article
+  end
+
+  def author
+    user
   end
 end
