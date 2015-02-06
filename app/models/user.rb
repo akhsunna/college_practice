@@ -5,10 +5,11 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader, :default_url => 'no-avatar.jpg'
 
   validates :name, presence: true
-
-  has_many :events_users, dependent: :delete_all
+  #
+  # has_many :events_users, dependent: :delete_all
   has_many :events, through: :events_users
   has_many :events
+  has_many :articles
 
   # validates_presence_of   :avatar
 
