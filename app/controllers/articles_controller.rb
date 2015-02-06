@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update_attributes(article_params)
-      redirect_to articles_path, notice: 'The article has been successfully updated.'
+      redirect_to article_path, notice: 'The article has been successfully updated.'
     else
       render action: 'edit'
     end
@@ -40,6 +40,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :date)
   end
 end

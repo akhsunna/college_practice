@@ -3,15 +3,11 @@
     = @article.errors.full_messages.each do |message|
       %li= message
 = form_for @article do |f|
-  %div
-    = f.label :title
-  %div
-    = f.text_field :title
-  %div
-    = f.label :content
-  %div
-    = f.cktext_area :content, rows: 10
-  %div
-    = f.date_select :date
-  %div
-    = f.submit
+  %div= f.label :title
+  %div= f.text_field :title
+  %div= f.label :description
+  %div= f.text_field :description
+  %div= f.label :content
+  %div= f.cktext_area :content, rows: 10
+  %div= f.date_select :date
+  %div= f.submit
