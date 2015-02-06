@@ -15,4 +15,5 @@
 *~
 /log/*
 .idea/
-
+/public/fallback/
+/public/uploads/
