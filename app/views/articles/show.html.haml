@@ -6,7 +6,14 @@
     = @article.title
   %p= @article.content.html_safe
 
-  %h2 Comments
+  -#.author
+  -#  - if !@article.user_id.nil?
+  -#    Author:
+  -#    - login = User.find(@article.user_id).name
+  -#    = link_to "#{login}", user_path(:id => @article.user_id)
+
+  .com-title Comments
+
   - if user_signed_in?
     %p= link_to 'Add a Comment', new_article_comment_path(@article)
 

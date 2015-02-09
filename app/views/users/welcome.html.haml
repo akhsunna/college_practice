@@ -1,17 +1,21 @@
 .cont
 
-  %tbody
-  - @articles.each do |article|
-    = link_to  article_path(article.id) do
-      .little-article
-        .blackout
-        .la-description
-          #la-title= article.title.upcase!
+  .articles
+    %tbody
+    - @articles.each do |article|
+      = link_to  article_path(article.id), :class => 'little-article' do
+        = image_tag article.cover, :class => 'la-picture'
+        .la-text
+          .la-category Рубрика
+          .la-title= article.title.upcase!
           %br
           = article.description
         %br
         .la-date= article.date
-  %br
+        -#.blackout
+    %br
 
-  %button.navbar-toggle{type: 'button', data: {toggle: 'collapse', target: '.navbar-responsive-collapse'}}
-    %span.icon-bar
+    %button.navbar-toggle{type: 'button', data: {toggle: 'collapse', target: '.navbar-responsive-collapse'}}
+      %span.icon-bar
+
+  .news NEEEEEEWS

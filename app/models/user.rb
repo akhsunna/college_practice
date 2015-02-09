@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  mount_uploader :avatar, AvatarUploader, :default_url => 'no-avatar.jpg'
+  mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true
   #
