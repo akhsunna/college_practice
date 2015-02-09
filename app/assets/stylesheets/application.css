@@ -41,6 +41,7 @@ body {
   margin: auto;
   padding: 5px 5px ;
   height: auto;
+  display: table;
 }
 
 .umain {
@@ -92,8 +93,8 @@ body {
 .news {
   width: 360px;
   height: 1000px;
-  background: grey;
   display: inline-block;
+  float: right;
 }
 
 .little-article {
@@ -174,14 +175,24 @@ body {
 
 
 
-
-
 .com-title {
+  padding-right: 35px;
   padding-left: 35px;
-  font-size: 20px;
+  margin-top: 30px;
   position: relative;
-  background: #f4f4f4;
   width: 70%;
+  height: 30px;
+  font-size: 20px;
+  text-align: justify;
+  text-align-last: justify;
+  background: #f4f4f4;
+}
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
 }
 
 .comment_list {
@@ -191,8 +202,17 @@ body {
   margin-left: 0;
 }
 
+.no-comments {
+  color: grey;
+  width: 70%;
+  text-align: center;
+  padding-bottom: 10px;
+  background: #f4f4f4;
+}
+
 .comment {
   list-style-type: none;
+  background: #f4f4f4;
   position: relative;
   padding-top: 5px;
 }
