@@ -16,7 +16,9 @@
   - if user_signed_in?
     .comment-show-r
       %a Reply
-  .comment-form-r= render 'comments/form'
+  .comment-form-r{ :style => 'display: none' }
+    - @parent = comment
+    = render 'comments/form'
 
 
 

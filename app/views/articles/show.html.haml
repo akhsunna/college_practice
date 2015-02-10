@@ -22,7 +22,7 @@
     -#.comment-form{hidden: true}= render 'comments/form'
 
     %a.comment-show Add a Comment
-  .comment-form= render 'comments/form'
+  .comment-form{ :style => 'display: none' }= render 'comments/form', :parent => @article
 
   - if @article.comments.empty?
     .no-comments No comments.

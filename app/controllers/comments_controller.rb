@@ -15,6 +15,10 @@ class CommentsController < ApplicationController
     end
   end
 
+  # def set_comment
+  #   @comment
+  # end
+
   protected
 
   def get_parent
