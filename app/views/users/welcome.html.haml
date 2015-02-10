@@ -4,7 +4,7 @@
     %tbody
     - @articles.each do |article|
       = link_to  article_path(article.id), :class => 'little-article' do
-        = image_tag article.cover, :class => 'la-picture'
+        = image_tag article.cover_url(:thumb).to_s, :class => 'la-picture'
         .la-text
           .la-category Рубрика
           .la-title= article.title.upcase!

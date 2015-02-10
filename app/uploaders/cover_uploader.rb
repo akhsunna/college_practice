@@ -4,7 +4,9 @@ class CoverUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
 
-  process :resize_to_fit => [350, 500]
+  version :thumb do
+    process :resize_to_fill => [350,500]
+  end
 
   storage :file
 

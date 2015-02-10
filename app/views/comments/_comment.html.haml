@@ -9,8 +9,20 @@
   .comment-body
     = comment.body
 
+  .time= comment.created_at.strftime('%B %e at %l:%M %p')
+
+  -#- if user_signed_in?
+  -#  = link_to 'Reply', new_comment_comment_path(comment), :class => 'reply'
   - if user_signed_in?
-    %p= link_to 'Reply', new_comment_comment_path(comment), :class => 'reply'
+    .comment-show-r
+      %a Reply
+  .comment-form-r= render 'comments/form'
+
+
+
+
+
+
 
   - unless comment.comments.empty?
     %ul.comment_list

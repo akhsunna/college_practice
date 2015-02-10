@@ -12,10 +12,23 @@
   -#    - login = User.find(@article.user_id).name
   -#    = link_to "#{login}", user_path(:id => @article.user_id)
 
-  .com-title Comments
+  .com-title
+    .left Comments
 
-  - if user_signed_in?
-    %p= link_to 'Add a Comment', new_article_comment_path(@article)
+    -#- if user_signed_in?
+    -#  .right= link_to 'Add a Comment', new_article_comment_path(@article)
 
-  %ul.comment_list
-    = render :partial => 'comments/comment', :collection => @article.comments
+    -#%a.comment-show Add a Comment
+    -#.comment-form{hidden: true}= render 'comments/form'
+
+    %a.comment-show Add a Comment
+  .comment-form= render 'comments/form'
+
+  - if @article.comments.empty?
+    .no-comments No comments.
+  - else
+    %ul.comment_list
+      = render :partial => 'comments/comment', :collection => @article.comments
+
+
+
