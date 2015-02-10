@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150201190934) do
+ActiveRecord::Schema.define(version: 20150209082026) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",           limit: 255
@@ -22,9 +22,22 @@ ActiveRecord::Schema.define(version: 20150201190934) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.integer  "user_id",         limit: 4
+    t.string   "cover",           limit: 255
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body",             limit: 65535
+    t.integer  "commentable_id",   limit: 4
+    t.string   "commentable_type", limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "user_id",          limit: 4
+  end
+
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "event_categories", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -63,12 +76,15 @@ ActiveRecord::Schema.define(version: 20150201190934) do
     t.datetime "updated_at"
     t.string   "name",                   limit: 255
     t.string   "place",                  limit: 255
+    t.string   "avatar",                 limit: 255
+    t.boolean  "editor",                 limit: 1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "articles", "users"
+  add_foreign_key "comments", "users"
   add_foreign_key "events", "event_categories"
   add_foreign_key "events", "users"
 end

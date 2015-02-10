@@ -10,4 +10,8 @@ class UsersController < ApplicationController
     @articles = Article.all
     respond_with @articles
   end
+
+  def index
+    @users = User.all
+  end
 end

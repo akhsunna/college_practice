@@ -1,11 +1,21 @@
-%h3 Articles:
+.cont
 
-%tbody
-- @articles.each do |article|
-    %div
-    = article.title
+  .articles
+    %tbody
+    - @articles.each do |article|
+      = link_to  article_path(article.id), :class => 'little-article' do
+        = image_tag article.cover_url(:thumb).to_s, :class => 'la-picture'
+        .la-text
+          .la-category Рубрика
+          .la-title= article.title.upcase!
+          %br
+          = article.description
+        %br
+        .la-date= article.date
+        -#.blackout
     %br
-    = article.description
-    %br
-    = article.date
-%br
+
+    %button.navbar-toggle{type: 'button', data: {toggle: 'collapse', target: '.navbar-responsive-collapse'}}
+      %span.icon-bar
+
+  .news NEEEEEEWS

@@ -1,0 +1,8 @@
+= form_for [@parent, @comment] do |f|
+  = f.label :body
+  %br
+  = f.text_area :body, placeholder: :body
+
+  = f.hidden_field :user_id, :value => current_user.id
+
+  %p= f.submit 'add comment'

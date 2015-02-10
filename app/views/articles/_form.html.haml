@@ -1,0 +1,19 @@
+- if @article.errors.any?
+  %ul
+    = @article.errors.full_messages.each do |message|
+      %li= message
+= form_for @article do |f|
+  %div= f.label :title
+  %div= f.text_field :title
+
+  %div= f.label :description
+  %div= f.text_field :description
+
+  %div= f.file_field :cover
+
+  %div= f.label :content
+  %div= f.cktext_area :content, rows: 10
+
+  %div= f.date_select :date
+  %div= f.hidden_field :user_id, :value => current_user.id
+  %div= f.submit

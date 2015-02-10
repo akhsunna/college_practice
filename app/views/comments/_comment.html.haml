@@ -1,0 +1,31 @@
+%li.comment
+
+  .com-line
+
+  - if !comment.user_id.nil?
+    - login = User.find(comment.user_id).name
+    = link_to "#{login}", user_path(:id => comment.user_id), :class => 'author'
+
+  .comment-body
+    = comment.body
+
+  .time= comment.created_at.strftime('%B %e at %l:%M %p')
+
+  -#- if user_signed_in?
+  -#  = link_to 'Reply', new_comment_comment_path(comment), :class => 'reply'
+  - if user_signed_in?
+    .comment-show-r
+      %a Reply
+  .comment-form-r{ :style => 'display: none' }
+    - @parent = comment
+    = render 'comments/form'
+
+
+
+
+
+
+
+  - unless comment.comments.empty?
+    %ul.comment_list
+      = render :partial => 'comments/comment', :collection => comment.comments

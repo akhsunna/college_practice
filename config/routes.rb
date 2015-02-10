@@ -4,8 +4,23 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :comments do
+    resources :comments
+  end
+
+  resources :articles do
+    resources :comments
+  end
+
+  # root to: 'articles#index'
+
+
+  get '/add_comment' => 'article#add_comment', :as => :add_comment
+
 
   root to: 'users#welcome'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
