@@ -7,7 +7,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
   process :resize_to_fit => [400, 400]
 
   version :thumb do
-    process :resize_to_fill => [200,200]
+    process :resize_to_fill => [200, 200]
+  end
+
+  version :mini do
+    process :resize_to_fill => [50, 50]
   end
 
   storage :file

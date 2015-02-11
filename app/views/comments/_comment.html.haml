@@ -4,7 +4,9 @@
 
   - if !comment.user_id.nil?
     - login = User.find(comment.user_id).name
-    = link_to "#{login}", user_path(:id => comment.user_id), :class => 'author'
+    = link_to user_path(:id => comment.user_id), :class => 'author' do
+      = image_tag User.find(comment.user_id).avatar_url(:mini).to_s
+      = "#{login}"
 
   .comment-body
     = comment.body
