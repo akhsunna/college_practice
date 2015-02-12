@@ -7,6 +7,8 @@
     = link_to user_path(:id => comment.user_id), :class => 'author' do
       = image_tag User.find(comment.user_id).avatar_url(:mini).to_s
       = "#{login}"
+    - if comment.user == current_user
+      = link_to 'Delete', comment, method: :delete
 
   .comment-body
     = comment.body

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :get_parent
+  before_filter :get_parent, except: :destroy
 
   def new
     @comment = @parent.comments.build
@@ -15,9 +15,11 @@ class CommentsController < ApplicationController
     end
   end
 
-  # def set_comment
-  #   @comment
-  # end
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to Article.find(@comment.article.id)
+  end
 
   protected
 
