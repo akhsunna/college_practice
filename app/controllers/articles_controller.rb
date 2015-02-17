@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :set_article, only: [:show, :edit, :update]
   # before_filter :authenticate_user!
   respond_to :html
 
@@ -8,7 +9,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
     @parent = @article
     @comment = Comment.new
   end
@@ -31,11 +31,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
     if @article.update_attributes(article_params)
       redirect_to article_path, notice: 'The article has been successfully updated.'
     else
@@ -44,8 +42,11 @@ class ArticlesController < ApplicationController
   end
 
   private
+    def set_acticle
+      @article = Article.find(params[:id])
+    end
 
-  def article_params
-    params.require(:article).permit(:title, :content, :date, :description, :user_id, :cover)
-  end
+    def article_params
+      params.require(:article).permit(:title, :content, :date, :description, :user_id, :cover)
+    end
 end
